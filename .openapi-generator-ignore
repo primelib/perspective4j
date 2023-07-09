@@ -1,0 +1,6 @@
+README.md
+build.gradle.kts
+src/main/java/io/github/primelib/perspective4j/model/AttributeType.java
+src/main/java/io/github/primelib/perspective4j/model/CommentAnalyzeRequest.java
+src/main/java/io/github/primelib/perspective4j/spec/AnalyzeCommentV1Alpha1OperationSpec.java
+src/main/java/io/github/primelib/perspective4j/api/PerspectiveSpecApi.java

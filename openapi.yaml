@@ -1,0 +1,116 @@
+openapi: 3.0.3
+info:
+  title: Perspective
+  description: |
+    The Perspective API is a machine learning model that rates the perceived impact a comment might have on a conversation.
+    Developers and publishers can use this model to help automate comment moderation.
+  version: 1.0.0
+servers:
+  - url: https://commentanalyzer.googleapis.com
+paths:
+  /v1alpha1/comments:analyze:
+    post:
+      operationId: AnalyzeCommentV1Alpha1
+      summary: Analyze the comment
+      parameters:
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+          description: API key for authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentAnalyzeRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentAnalyzeResult'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+components:
+  schemas:
+    CommentAnalyzeRequest:
+      type: object
+      properties:
+        comment:
+          $ref: '#/components/schemas/Comment'
+        requestedAttributes:
+          type: object
+          additionalProperties: {}
+        languages:
+          type: array
+          items:
+            type: string
+      required:
+        - comment
+        - requestedAttributes
+    CommentAnalyzeResult:
+      type: object
+      properties:
+        attributeScores:
+          $ref: '#/components/schemas/AttributeScores'
+        languages:
+          type: array
+          items:
+            type: string
+        detectedLanguages:
+          type: array
+          items:
+            type: string
+    AttributeScores:
+      title: AttributeScores
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/AttributeScore'
+    AttributeScore:
+      type: object
+      properties:
+        spanScores:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpanScore'
+        summaryScore:
+          $ref: '#/components/schemas/Score'
+    Comment:
+      type: object
+      properties:
+        text:
+          type: string
+          example: "a comment to analyse"
+    Score:
+      type: object
+      properties:
+        value:
+          type: number
+          format: double
+        type:
+          type: string
+    SpanScore:
+      type: object
+      properties:
+        score:
+          $ref: '#/components/schemas/Score'
+    AttributeType:
+      type: string
+      enum:
+        - TOXICITY
+        - SEVERE_TOXICITY
+        - IDENTITY_ATTACK
+        - INSULT
+        - PROFANITY
+        - THREAT
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic
