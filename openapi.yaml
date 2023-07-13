@@ -7,18 +7,13 @@ info:
   version: 1.0.0
 servers:
   - url: https://commentanalyzer.googleapis.com
+security:
+  - ApiKey: []
 paths:
   /v1alpha1/comments:analyze:
     post:
       operationId: AnalyzeCommentV1Alpha1
       summary: Analyze the comment
-      parameters:
-        - name: key
-          in: query
-          required: true
-          schema:
-            type: string
-          description: API key for authentication
       requestBody:
         required: true
         content:
@@ -39,6 +34,12 @@ paths:
         '500':
           description: Internal Server Error
 components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      name: key
+      in: query
+      description: API key for authentication
   schemas:
     CommentAnalyzeRequest:
       type: object
@@ -110,7 +111,3 @@ components:
         - INSULT
         - PROFANITY
         - THREAT
-  securitySchemes:
-    Basic:
-      type: http
-      scheme: basic

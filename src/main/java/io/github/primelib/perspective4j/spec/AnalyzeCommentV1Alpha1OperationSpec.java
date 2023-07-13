@@ -27,12 +27,6 @@ import java.util.function.Consumer;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class AnalyzeCommentV1Alpha1OperationSpec {
 
-    /**
-     * API key for authentication
-     */
-    @NotNull 
-    private String apiKey;
-
     @NotNull
     private String text;
 
@@ -59,7 +53,6 @@ public class AnalyzeCommentV1Alpha1OperationSpec {
      * @throws NullPointerException
      */
     public void validate() {
-        Objects.requireNonNull(apiKey, "apiKey is a required parameter!");
         Objects.requireNonNull(text, "text is a required parameter!");
         Objects.requireNonNull(requestedAttributes, "requestedAttributes is a required parameter!");
     }

@@ -29,7 +29,7 @@ public class PerspectiveSpecApi {
         CommentAnalyzeRequest body = new CommentAnalyzeRequest(new Comment(r.text()), r.requestedAttributes()
                 .stream()
                 .collect(Collectors.toMap(attributeType -> attributeType, attributeType -> new Object())), new ArrayList<>(r.languages()));
-        return api.analyzeCommentV1Alpha1(r.apiKey(), body);
+        return api.analyzeCommentV1Alpha1(body);
     }
 
 }
