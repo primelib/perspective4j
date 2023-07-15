@@ -48,7 +48,7 @@ public class PerspectiveFactory {
             .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
             .build();
 
-    public static <T> T build(Consumer<PerspectiveFactorySpec<T>> spec) {
+    public static <T> T create(Consumer<PerspectiveFactorySpec<T>> spec) {
         PerspectiveFactorySpec<T> config = new PerspectiveFactorySpec<>(spec);
 
         if (config.api().isInterface()) {
@@ -66,8 +66,8 @@ public class PerspectiveFactory {
         }
     }
 
-    public static PerspectiveApi build() {
-        return build(spec -> spec.api(PerspectiveApi.class));
+    public static PerspectiveApi create() {
+        return create(spec -> spec.api(PerspectiveApi.class));
     }
 
     private static <T> T buildClient(Consumer<PerspectiveFactorySpec<T>> spec) {
