@@ -15,19 +15,6 @@ implementation("io.github.primelib:perspective4j:<latestVersion>")
 
 ## Usage
 
-*Parameter Approach*
-
-```java
-PerspectiveApi client = PerspectiveFactory.create(spec -> {
-    spec.api(PerspectiveApi.class);
-    spec.apiKeyAuth(auth -> {
-        auth.apiKey("<apiKey>");
-    });
-});
-
-CommentAnalyzeResult result = client.analyzeCommentV1Alpha1(new CommentAnalyzeRequest(new Comment("<text>"), Collections.singletonMap(AttributeType.TOXICITY, null), null));
-```
-
 *Consumer Specification Approach*
 
 ```java
@@ -44,6 +31,21 @@ CommentAnalyzeResult result = client.analyzeCommentV1Alpha1(spec -> {
     spec.requestedAttributes(Collections.singleton(AttributeType.TOXICITY));
 });
 ```
+
+*Parameter Approach*
+
+```java
+PerspectiveApi client = PerspectiveFactory.create(spec -> {
+    spec.api(PerspectiveApi.class);
+    spec.apiKeyAuth(auth -> {
+        auth.apiKey("<apiKey>");
+    });
+});
+
+CommentAnalyzeResult result = client.analyzeCommentV1Alpha1(new CommentAnalyzeRequest(new Comment("<text>"), Collections.singletonMap(AttributeType.TOXICITY, null), null));
+```
+
+**_NOTE:_** The  `Parameter Approach` can break if the API changes. The `Consumer Specification Approach` is more resilient to API changes.
 
 ## Contribution
 

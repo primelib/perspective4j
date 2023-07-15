@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
 import io.github.primelib.perspective4j.spec.AnalyzeCommentV1Alpha1OperationSpec;
 
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class PerspectiveSpecApi {
+public class PerspectiveConsumerApi {
     private final PerspectiveApi api;
 
-    public PerspectiveSpecApi(PerspectiveApi api) {
+    public PerspectiveConsumerApi(PerspectiveApi api) {
         this.api = api;
     }
 
