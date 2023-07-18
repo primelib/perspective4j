@@ -5,6 +5,16 @@
 	"modelPackage" : "io.github.primelib.perspective4j.model",
 	"enablePostProcessFile": true,
 	"additionalProperties": {
-		"projectName": "perspective4j"
+		"projectName": "perspective4j",
+		"projectDescription": "A Java Wrapper for the Perspective API",
+		"projectRepository":  "github.com/primelib/perspective4j",
+		"projectInceptionYear":  "2023",
+		"projectLicenseName": "MIT",
+		"projectLicenseUrl": "https://github.com/primelib/perspective4j/blob/main/LICENSE",
+		"projectArtifactGroupId": "io.github.primelib",
+		"projectArtifactId": "perspective4j",
+		"projectMaintainerId": "PhilippHeuer",
+		"projectMaintainerName": "Philipp Heuer",
+		"projectMaintainerEMail": "git@philippheuer.me"
 	}
 }
