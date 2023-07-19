@@ -18,7 +18,8 @@ public interface PerspectiveApi {
      */
     @RequestLine("POST /v1alpha1/comments:analyze")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     CommentAnalyzeResult analyzeCommentV1Alpha1(@NotNull CommentAnalyzeRequest commentAnalyzeRequest);
 
