@@ -3,10 +3,13 @@ package io.github.primelib.perspective4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Score
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "value",
     "type"
@@ -29,21 +35,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class Score {
 
-    /**
-     * Constructs a validated implementation of {@link Score}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public Score(Consumer<Score> spec) {
-        spec.accept(this);
-    }
-
     @JsonProperty("value")
     protected Double value;
 
     @JsonProperty("type")
     protected String type;
 
+    /**
+     * Constructs a validated instance of {@link Score}.
+     *
+     * @param spec the specification to process
+     */
+    public Score(Consumer<Score> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link Score}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Score(Consumer)} instead.
+     * @param value var.name
+     * @param type var.name
+     */
+    @ApiStatus.Internal
+    public Score(Double value, String type) {
+        this.value = value;
+        this.type = type;
+    }
 
 }

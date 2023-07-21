@@ -54,6 +54,15 @@ public final class PerspectiveFactorySpec<T> {
     private List<AuthMethod> auth = new ArrayList<>(5);
 
     /**
+     * The proxy server to use, if applicable
+     * <p>
+     * Defaults to {@code null}.
+     * Set to {@code PerspectiveProxySpec.detect()} to detect the proxy based on the os environment automatically.
+     */
+    @Nullable
+    private PerspectiveProxySpec proxy = null;
+
+    /**
      * MeterRegistry to use for metrics
      */
     @NotNull
@@ -94,6 +103,12 @@ public final class PerspectiveFactorySpec<T> {
         Objects.requireNonNull(logLevel, "logLevel must not be null");
     }
 
+    public PerspectiveProxySpec httpProxy(Consumer<PerspectiveProxySpec> proxySpec) {
+        PerspectiveProxySpec proxy = new PerspectiveProxySpec(proxySpec);
+        proxy(proxy);
+        return proxy;
+    }
+
     public ApiKeyAuthSpec apiKeyAuth(Consumer<ApiKeyAuthSpec> spec) {
         ApiKeyAuthSpec method = new ApiKeyAuthSpec(spec);
         auth.add(method);
@@ -104,6 +119,7 @@ public final class PerspectiveFactorySpec<T> {
         backendName(spec.backendName());
         baseUrl(spec.baseUrl());
         auth(spec.auth());
+        proxy(spec.proxy());
         meterRegistry(spec.meterRegistry());
     }
 }

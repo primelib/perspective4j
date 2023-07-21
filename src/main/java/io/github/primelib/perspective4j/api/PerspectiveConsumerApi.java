@@ -26,9 +26,13 @@ public class PerspectiveConsumerApi {
      */
     public CommentAnalyzeResult analyzeCommentV1Alpha1(Consumer<AnalyzeCommentV1Alpha1OperationSpec> spec) {
         AnalyzeCommentV1Alpha1OperationSpec r = new AnalyzeCommentV1Alpha1OperationSpec(spec);
-        CommentAnalyzeRequest body = new CommentAnalyzeRequest(new Comment(r.text()), r.requestedAttributes()
-                .stream()
-                .collect(Collectors.toMap(attributeType -> attributeType, attributeType -> new Object())), new ArrayList<>(r.languages()));
+        CommentAnalyzeRequest body = new CommentAnalyzeRequest(commentAnalyzeRequest -> {
+            commentAnalyzeRequest.comment(new Comment(comment -> comment.text(r.text())));
+            commentAnalyzeRequest.languages(new ArrayList<>(r.languages()));
+            commentAnalyzeRequest.requestedAttributes(r.requestedAttributes()
+                    .stream()
+                    .collect(Collectors.toMap(attributeType -> attributeType, attributeType -> new Object())));
+        });
         return api.analyzeCommentV1Alpha1(body);
     }
 
