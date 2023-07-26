@@ -9,6 +9,8 @@ import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
+import io.github.primelib.primecodegenlib.java.feign.common.api.AuthMethod;
+
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
