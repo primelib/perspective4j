@@ -55,8 +55,8 @@ public class AttributeScore {
      * Constructs a validated instance of {@link AttributeScore}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AttributeScore(Consumer)} instead.
-     * @param spanScores var.name
-     * @param summaryScore var.name
+     * @param spanScores spanScores
+     * @param summaryScore summaryScore
      */
     @ApiStatus.Internal
     public AttributeScore(List<SpanScore> spanScores, Score summaryScore) {

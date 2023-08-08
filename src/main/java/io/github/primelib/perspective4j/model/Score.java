@@ -54,8 +54,8 @@ public class Score {
      * Constructs a validated instance of {@link Score}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Score(Consumer)} instead.
-     * @param value var.name
-     * @param type var.name
+     * @param value value
+     * @param type type
      */
     @ApiStatus.Internal
     public Score(Double value, String type) {

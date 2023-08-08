@@ -50,7 +50,7 @@ public class SpanScore {
      * Constructs a validated instance of {@link SpanScore}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpanScore(Consumer)} instead.
-     * @param score var.name
+     * @param score score
      */
     @ApiStatus.Internal
     public SpanScore(Score score) {

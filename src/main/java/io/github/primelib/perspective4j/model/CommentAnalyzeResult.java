@@ -60,9 +60,9 @@ public class CommentAnalyzeResult {
      * Constructs a validated instance of {@link CommentAnalyzeResult}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CommentAnalyzeResult(Consumer)} instead.
-     * @param attributeScores var.name
-     * @param languages var.name
-     * @param detectedLanguages var.name
+     * @param attributeScores attributeScores
+     * @param languages languages
+     * @param detectedLanguages detectedLanguages
      */
     @ApiStatus.Internal
     public CommentAnalyzeResult(Map<String, AttributeScore> attributeScores, List<String> languages, List<String> detectedLanguages) {

@@ -50,7 +50,7 @@ public class Comment {
      * Constructs a validated instance of {@link Comment}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Comment(Consumer)} instead.
-     * @param text var.name
+     * @param text text
      */
     @ApiStatus.Internal
     public Comment(String text) {
