@@ -1,0 +1,4 @@
+modules:
+  - name: perspective-rest
+    dir: .
+    spec_file: openapi.yaml
