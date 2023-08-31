@@ -1,7 +1,6 @@
 .gitignore
 build.gradle.kts
 gradle/wrapper/gradle-wrapper.properties
-gradlew
 gradlew.bat
 renovate.json
 settings.gradle.kts
