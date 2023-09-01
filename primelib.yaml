@@ -2,3 +2,15 @@ modules:
   - name: perspective-rest
     dir: .
     spec_file: openapi.yaml
+    config:
+      generatorName: prime-client-java-feign
+      invokerPackage: io.github.primelib.perspective4j
+      apiPackage: io.github.primelib.perspective4j.api
+      modelPackage: io.github.primelib.perspective4j.model
+      enablePostProcessFile: true
+      additionalProperties:
+        projectArtifactGroupId: io.github.primelib
+        projectArtifactId: perspective4j
+        projectMaintainerId: PhilippHeuer
+        projectMaintainerName: Philipp Heuer
+        projectMaintainerEMail: git@philippheuer.me
