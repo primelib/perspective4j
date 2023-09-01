@@ -11,7 +11,7 @@ projectConfiguration {
     artifactGroupId.set("io.github.primelib")
     artifactId.set("perspective4j")
     artifactDisplayName.set("perspective4j")
-    artifactDescription.set("A Java Wrapper for the Perspective API")
+    artifactDescription.set("Java Client for the Perspective API: https://www.perspectiveapi.com")
 
     pom = { pom ->
         pom.url.set("https://github.com/primelib/perspective4j")
@@ -30,9 +30,9 @@ projectConfiguration {
         }
         pom.licenses {
             license {
-                name.set("MIT")
+                name.set("MIT License")
                 distribution.set("repo")
-                url.set("https://github.com/primelib/perspective4j/blob/main/LICENSE")
+                url.set("https://raw.githubusercontent.com/primelib/perspective4j/main/LICENSE")
             }
         }
         pom.scm {
