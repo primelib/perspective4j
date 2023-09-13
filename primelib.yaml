@@ -1,7 +1,7 @@
+release: true
 modules:
-  - name: perspective-rest
-    dir: .
-    spec_file: openapi.yaml
+  - spec_file: openapi.yaml
+    spec_format: openapi
     config:
       generatorName: prime-client-java-feign
       invokerPackage: io.github.primelib.perspective4j
