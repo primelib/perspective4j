@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Score
+ * ContextEntry
  *
  */
 @Getter
@@ -28,44 +28,41 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @Builder
 @JsonPropertyOrder({
-    "value",
+    "text",
     "type"
 })
-@JsonTypeName("Score")
+@JsonTypeName("ContextEntry")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class Score {
+public class ContextEntry {
 
     /**
-     * The attribute score.
+     * The text to score. This is assumed to be utf8 raw text of the text to be checked. Note: Emoji and other non-ascii characters can be included (HTML will probably result in lower performance).
      */
-    @JsonProperty("value")
-    protected Double value;
+    @JsonProperty("text")
+    protected String text;
 
-    /**
-     * This mirrors the requested scoreType for this attribute.
-     */
     @JsonProperty("type")
-    protected String type;
+    protected ContextType type;
 
     /**
-     * Constructs a validated instance of {@link Score}.
+     * Constructs a validated instance of {@link ContextEntry}.
      *
      * @param spec the specification to process
      */
-    public Score(Consumer<Score> spec) {
+    public ContextEntry(Consumer<ContextEntry> spec) {
         spec.accept(this);
     }
 
     /**
-     * Constructs a validated instance of {@link Score}.
+     * Constructs a validated instance of {@link ContextEntry}.
      * <p>
-     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Score(Consumer)} instead.
-     * @param value The attribute score.
-     * @param type This mirrors the requested scoreType for this attribute.
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContextEntry(Consumer)} instead.
+     * @param text The text to score. This is assumed to be utf8 raw text of the text to be checked. Note: Emoji and other non-ascii characters can be included (HTML will probably result in lower performance).
+     * @param type type
      */
     @ApiStatus.Internal
-    public Score(Double value, String type) {
-        this.value = value;
+    public ContextEntry(String text, ContextType type) {
+        this.text = text;
         this.type = type;
     }
 

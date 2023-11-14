@@ -36,6 +36,11 @@ public class PerspectiveConsumerApi {
             commentAnalyzeRequest.requestedAttributes(r.requestedAttributes()
                     .stream()
                     .collect(Collectors.toMap(attributeType -> attributeType, attributeType -> new Object())));
+            commentAnalyzeRequest.context(r.context());
+            commentAnalyzeRequest.doNotStore(r.doNotStore());
+            commentAnalyzeRequest.spanAnnotations(r.spanAnnotations());
+            commentAnalyzeRequest.communityId(r.communityId());
+            commentAnalyzeRequest.clientToken(r.clientToken());
         });
         return api.analyzeCommentV1Alpha1(body);
     }

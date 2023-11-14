@@ -31,8 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Builder
 @JsonPropertyOrder({
     "attributeScores",
-    "languages",
-    "detectedLanguages"
+    "languages"
 })
 @JsonTypeName("CommentAnalyzeResult")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
@@ -41,11 +40,11 @@ public class CommentAnalyzeResult {
     @JsonProperty("attributeScores")
     protected Map<String, AttributeScore> attributeScores;
 
+    /**
+     * Mirrors the request's languages. If no languages were specified, the API returns the auto-detected language. 
+     */
     @JsonProperty("languages")
     protected List<String> languages;
-
-    @JsonProperty("detectedLanguages")
-    protected List<String> detectedLanguages;
 
     /**
      * Constructs a validated instance of {@link CommentAnalyzeResult}.
@@ -61,14 +60,12 @@ public class CommentAnalyzeResult {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CommentAnalyzeResult(Consumer)} instead.
      * @param attributeScores attributeScores
-     * @param languages languages
-     * @param detectedLanguages detectedLanguages
+     * @param languages Mirrors the request's languages. If no languages were specified, the API returns the auto-detected language. 
      */
     @ApiStatus.Internal
-    public CommentAnalyzeResult(Map<String, AttributeScore> attributeScores, List<String> languages, List<String> detectedLanguages) {
+    public CommentAnalyzeResult(Map<String, AttributeScore> attributeScores, List<String> languages) {
         this.attributeScores = attributeScores;
         this.languages = languages;
-        this.detectedLanguages = detectedLanguages;
     }
 
 }
