@@ -34,6 +34,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class Comment {
 
+    /**
+     * The text to score. This is assumed to be utf8 raw text of the text to be checked. Note: Emoji and other non-ascii characters can be included (HTML will probably result in lower performance).
+     */
     @JsonProperty("text")
     protected String text;
 
@@ -50,7 +53,7 @@ public class Comment {
      * Constructs a validated instance of {@link Comment}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Comment(Consumer)} instead.
-     * @param text text
+     * @param text The text to score. This is assumed to be utf8 raw text of the text to be checked. Note: Emoji and other non-ascii characters can be included (HTML will probably result in lower performance).
      */
     @ApiStatus.Internal
     public Comment(String text) {

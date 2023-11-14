@@ -12,12 +12,13 @@ import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Score
+ * Context
  *
  */
 @Getter
@@ -28,45 +29,33 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @Builder
 @JsonPropertyOrder({
-    "value",
-    "type"
+    "entries"
 })
-@JsonTypeName("Score")
+@JsonTypeName("Context")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class Score {
+public class Context {
+
+    @JsonProperty("entries")
+    protected List<ContextEntry> entries;
 
     /**
-     * The attribute score.
-     */
-    @JsonProperty("value")
-    protected Double value;
-
-    /**
-     * This mirrors the requested scoreType for this attribute.
-     */
-    @JsonProperty("type")
-    protected String type;
-
-    /**
-     * Constructs a validated instance of {@link Score}.
+     * Constructs a validated instance of {@link Context}.
      *
      * @param spec the specification to process
      */
-    public Score(Consumer<Score> spec) {
+    public Context(Consumer<Context> spec) {
         spec.accept(this);
     }
 
     /**
-     * Constructs a validated instance of {@link Score}.
+     * Constructs a validated instance of {@link Context}.
      * <p>
-     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Score(Consumer)} instead.
-     * @param value The attribute score.
-     * @param type This mirrors the requested scoreType for this attribute.
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Context(Consumer)} instead.
+     * @param entries entries
      */
     @ApiStatus.Internal
-    public Score(Double value, String type) {
-        this.value = value;
-        this.type = type;
+    public Context(List<ContextEntry> entries) {
+        this.entries = entries;
     }
 
 }

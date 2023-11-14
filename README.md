@@ -18,8 +18,8 @@ implementation("io.github.primelib:perspective4j:<latestVersion>")
 *Consumer Specification Approach*
 
 ```java
-PerspectiveSpecApi client = PerspectiveFactory.create(spec -> {
-    spec.api(PerspectiveSpecApi.class);
+PerspectiveConsumerApi client = PerspectiveFactory.create(spec -> {
+    spec.api(PerspectiveConsumerApi.class);
     spec.apiKeyAuth(auth -> {
         auth.apiKey("<apiKey>");
     });
@@ -29,6 +29,9 @@ CommentAnalyzeResult result = client.analyzeCommentV1Alpha1(spec -> {
     spec.text("<text>");
     spec.languages(Collections.singleton("en"));
     spec.requestedAttributes(Collections.singleton(AttributeType.TOXICITY));
+    // do not store for research purposes, if data being submitted is private (i.e. not publicly accessible), or if the data submitted contains content written by someone under 13 years old (or the relevant age determined by applicable law in my jurisdiction)
+    spec.doNotStore(true);
+    spec.spanAnnotations(true); // includes begin and end index for detected spans
 });
 ```
 
@@ -42,7 +45,7 @@ PerspectiveApi client = PerspectiveFactory.create(spec -> {
     });
 });
 
-CommentAnalyzeResult result = client.analyzeCommentV1Alpha1(new CommentAnalyzeRequest(new Comment("<text>"), Collections.singletonMap(AttributeType.TOXICITY, null), null));
+CommentAnalyzeResult result = client.analyzeCommentV1Alpha1(new CommentAnalyzeRequest(new Comment("<text>"), Collections.singletonMap(AttributeType.TOXICITY, null), null, null, true, null, null, null));
 ```
 
 **_NOTE:_** The  `Parameter Approach` can break if the API changes. The `Consumer Specification Approach` is more resilient to API changes.
