@@ -4,7 +4,7 @@ gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
-settings.gradle.kts
+renovate.json
 src/main/java/io/github/primelib/perspective4j/PerspectiveFactory.java
 src/main/java/io/github/primelib/perspective4j/PerspectiveFactorySpec.java
 src/main/java/io/github/primelib/perspective4j/api/PerspectiveApi.java
